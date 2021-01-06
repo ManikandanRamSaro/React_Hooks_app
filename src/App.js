@@ -10,7 +10,10 @@ const items =[
 class App extends React.Component{
 
     render(){
-        return (<div><Accordion items={items}/></div>);
+        return (<div>
+            <br/>
+            <Accordion items={items}/>
+            </div>);
     }
 
 }
