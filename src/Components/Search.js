@@ -27,6 +27,24 @@ const Search = () =>
          }
     },[term]);
 
+    const renderList = result.map((res)=>{
+         return (
+          
+                    <div key={res.pageid} className="item">
+                        <div className="right floated content">
+                            <a href={`https://en.wikipedia.org?curid=${res.pageid}`} className="ui button">Go</a>
+                        </div>
+                       <div className="content">   
+                            <div className="header">
+                                {res.title}
+                            </div> 
+                            <span dangerouslySetInnerHTML={{__html:res.snippet}}></span>
+                            {/* <p>above line is used to convert string into html element like any tag present inside the string that will be converted to tag</p> */}
+                        </div>   
+                </div>
+           
+         );
+    });
    
     return (<div>
         <div className="ui form">
@@ -37,6 +55,9 @@ const Search = () =>
                 onChange={(e) => setTerm(e.target.value)}
                 className="input"/>
             </div>
+        </div>
+        <div className="ui celled list">
+            {renderList}
         </div>
     </div>);
 }
