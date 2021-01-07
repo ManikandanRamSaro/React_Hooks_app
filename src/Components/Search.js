@@ -22,9 +22,15 @@ const Search = () =>
              setResult(data.query.search);
              console.log(data.query.search)
          }; 
-         if(term){
-            responseGet();
-         }
+        const timerid= setTimeout(()=>{
+            if(term){
+                responseGet();
+             }
+         },500);
+        
+         return ()=>{  // it was the part of useEffect method, it will be called automatically 2 time when useEffect called and 1 function executed when called
+            clearTimeout(timerid);
+         };
     },[term]);
 
     const renderList = result.map((res)=>{
