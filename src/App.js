@@ -8,6 +8,11 @@ const items =[
     { id:3 , title:'HTML',content:'its completly for UI only'}
 ]
 
+const options = [
+    {id:1,label:'The color red',value:'red'},
+    {id:2,label:'The color green',value:'green'},
+    {id:3,label:'The color blue',value:'blue'}
+]
 class App extends React.Component{
 
     render(){
@@ -15,7 +20,7 @@ class App extends React.Component{
             <br/>
             {/* <Accordion items={items}/> */}
             {/* <Search /> */}
-            <Dropdown/>
+            <Dropdown options={options}/>
             </div>);
     }
 
