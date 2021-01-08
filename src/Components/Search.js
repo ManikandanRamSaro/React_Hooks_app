@@ -2,36 +2,45 @@ import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 const Search = () =>
 {
-    const [term,setTerm]= useState('');
+    const [term,setTerm]= useState('India');
     const [result,setResult]=useState([]);
+    const [debouncerTerm,setDebouncerTer]=useState(term);
         // this like component did mount event and its works in 3, 1 is without 2 param, 2 is [] empty array param, 3 is given below
   
-    useEffect(()=>{ 
-         
-         const responseGet = async () => {
-            const {data} =  await axios.get('https://en.wikipedia.org/w/api.php',{
-                 params:{
-                    action: 'query',
-                    list: 'search',
-                    origin: '*',
-                    format: 'json',
-                    srsearch:term,
-                 },
+    useEffect(()=>{
 
-             });
-             setResult(data.query.search);
-             console.log(data.query.search)
-         }; 
-        const timerid= setTimeout(()=>{
-            if(term){
-                responseGet();
-             }
-         },500);
-        
-         return ()=>{  // it was the part of useEffect method, it will be called automatically 2 time when useEffect called and 1 function executed when called
+        const timerid = setTimeout(()=>{
+            setDebouncerTer(term);
+        },1000)
+        return()=>{
             clearTimeout(timerid);
-         };
+        }
     },[term]);
+
+    useEffect(()=>{
+
+        const timerid = setTimeout(()=>{
+            const responseGet = async () => {
+                const {data} =  await axios.get('https://en.wikipedia.org/w/api.php',{
+                     params:{
+                        action: 'query',
+                        list: 'search',
+                        origin: '*',
+                        format: 'json',
+                        srsearch:debouncerTerm,
+                     },
+    
+                 });
+                 setResult(data.query.search);
+                 console.log(data.query.search)
+             }; 
+             responseGet();
+        },1000)
+        return()=>{
+            clearTimeout(timerid);
+        }
+    },[debouncerTerm]);
+
 
     const renderList = result.map((res)=>{
          return (

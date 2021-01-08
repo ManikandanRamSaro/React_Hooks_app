@@ -1,6 +1,7 @@
 import React from "react";
 //import Accordion from './Components/Accordion';
-import Search from './Components/Search';
+//import Search from './Components/Search';
+import Dropdown from './Components/Dropdown';
 const items =[
     { id:1 , title:'React',content:'both html and logics are stored in js'},
     { id:2 , title:'Angular',content:'it had seperate Html, js and css file for all component'},
@@ -13,7 +14,8 @@ class App extends React.Component{
         return (<div>
             <br/>
             {/* <Accordion items={items}/> */}
-            <Search />
+            {/* <Search /> */}
+            <Dropdown/>
             </div>);
     }
 
