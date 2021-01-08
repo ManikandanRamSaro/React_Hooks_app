@@ -13,14 +13,15 @@ const options = [
     {id:2,label:'The color green',value:'green'},
     {id:3,label:'The color blue',value:'blue'}
 ]
+
 const App =()=>{
 
-  
+    const [selected,setSelected] = useState(options[0]);
         return (<div>
             <br/>
             {/* <Accordion items={items}/> */}
             {/* <Search /> */}
-            <Dropdown options={options}/>
+            <Dropdown selected={selected} onSelectedChange={setSelected} options={options}/>
             </div>);
  
 
