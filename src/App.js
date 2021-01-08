@@ -1,7 +1,8 @@
 import React,{useState} from "react";
 //import Accordion from './Components/Accordion';
 //import Search from './Components/Search';
-import Dropdown from './Components/Dropdown';
+//import Dropdown from './Components/Dropdown';
+import Translate from './Components/Translate';
 const items =[
     { id:1 , title:'React',content:'both html and logics are stored in js'},
     { id:2 , title:'Angular',content:'it had seperate Html, js and css file for all component'},
@@ -21,7 +22,8 @@ const App =()=>{
             <br/>
             {/* <Accordion items={items}/> */}
             {/* <Search /> */}
-            <Dropdown selected={selected} onSelectedChange={setSelected} options={options}/>
+            {/* <Dropdown selected={selected} onSelectedChange={setSelected} options={options}/> */}
+            <Translate/>
             </div>);
  
 
