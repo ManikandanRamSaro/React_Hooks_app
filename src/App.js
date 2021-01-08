@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 //import Accordion from './Components/Accordion';
 //import Search from './Components/Search';
 import Dropdown from './Components/Dropdown';
@@ -13,16 +13,16 @@ const options = [
     {id:2,label:'The color green',value:'green'},
     {id:3,label:'The color blue',value:'blue'}
 ]
-class App extends React.Component{
+const App =()=>{
 
-    render(){
+  
         return (<div>
             <br/>
             {/* <Accordion items={items}/> */}
             {/* <Search /> */}
             <Dropdown options={options}/>
             </div>);
-    }
+ 
 
 }
 export default App;
