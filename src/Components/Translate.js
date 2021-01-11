@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import Dropdown from './Dropdown';
 import Convert from './Convert';
 
-const options = [{id:1, label:'African', value :'af'},{ id:2,label:'Arabic', value :'ar'},{ id:3,label:'Hindi', value :'hi'},{id:4,label:'Tamil',value:'ta'}]
+const options = [{id:1,label:'Tamil',value:'ta'},{ id:2,label:'Arabic', value :'ar'},{ id:3,label:'Hindi', value :'hi'},{id:4, label:'African', value :'af'}]
 const Translate = () =>{
     const [language,setLanguage]=useState(options[0])
     const [text,setText]=useState('');
