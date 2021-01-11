@@ -4,7 +4,8 @@ import Search from './Components/Search';
 import Dropdown from './Components/Dropdown';
 import Translate from './Components/Translate';
 import Header from './Components/Header';
-import Route from './Components/Route';
+
+import Route from './Components/Route'; 
 const items =[
     { id:1 , title:'React',content:'both html and logics are stored in js'},
     { id:2 , title:'Angular',content:'it had seperate Html, js and css file for all component'},
@@ -22,7 +23,7 @@ const App =()=>{
     const [selected,setSelected] = useState(options[0]);
         return (<div> 
             <Header/>
-            
+
             <Route path="/">
                 <Accordion items={items}/>
             </Route>
