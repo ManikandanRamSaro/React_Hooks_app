@@ -5,21 +5,23 @@ const Dropdown = ({options,selected,onSelectedChange,label}) =>{
     const [open,setOpen] =useState(false);
     const ref=useRef();
 
-    useEffect(()=>{
+    useEffect(() => {
 
-        const onBodyClick = (event)=>{ 
-            if(ref.current.contains(event.target))
-            {
-                return;
-            }
-            setOpen(false);
-       };
+            const onBodyClick = (event) => { 
+             
+                if(ref.current.contains(event.target))
+                {
+                    return;
+                }
+                setOpen(false);
+        }; 
+        document.body.addEventListener('Click',onBodyClick);
 
-        document.body.addEventListener('click',onBodyClick);
+        // used to remove event when component detached from app component that time, this will executed and removed from body event
 
-        return () =>{ // used to remove event when component detached from app component that time, this will executed and removed from body event
-            document.body.removeEventListener('click',onBodyClick);
-        }
+        return () => {  
+            document.body.removeEventListener('Click',onBodyClick); 
+        };
     },[]);
 
     const renderedOption = options.map((opt)=>{

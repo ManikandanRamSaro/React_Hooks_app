@@ -21,6 +21,9 @@ const options = [
 const App =()=>{
 
     const [selected,setSelected] = useState(options[0]);
+
+    // const [show,setShow] = useState(true);
+ 
         return (<div> 
             <Header/>
 
@@ -36,6 +39,12 @@ const App =()=>{
             <Route path="/select">
                <Dropdown label="Select a Color" selected={selected} onSelectedChange={setSelected} options={options}/>
             </Route>
+
+            {/* <button className="ui button" onClick={()=>{setShow(!show)}}>SHowit </button>
+            {show ?   <Dropdown label="Select a Color" selected={selected} onSelectedChange={setSelected} options={options}/>
+                : ''
+            } */}
+           
  
            
             </div>);
